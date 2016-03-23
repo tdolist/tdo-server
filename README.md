@@ -19,7 +19,7 @@ Start the Django application (living in /home/vagrant/tdoserver) with the comman
 $ python3 manage.py runserver 0.0.0.0:8000
 ```
 
-It's now accessible via [192.168.33.10:8000](192.168.33.10:8000) in your browser.
+It's now accessible via [192.168.33.10:8000](http://192.168.33.10:8000) in your browser.
 
 ### The old-fashioned way
 
@@ -27,7 +27,7 @@ It's now accessible via [192.168.33.10:8000](192.168.33.10:8000) in your browser
 2. Install all dependencies using `pip3 install -r requirements.txt`
 3. Run the Django server from your terminal using:  
 `$ python3 manage.py runserver`
-4. Access the application via [127.0.0.1:8000](127.0.0.1:8000).
+4. Access the application via [127.0.0.1:8000](http://127.0.0.1:8000).
 
 
 ## TODOs:
