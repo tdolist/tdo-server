@@ -25,10 +25,8 @@ It's now accessible via [192.168.33.10:8000](192.168.33.10:8000) in your browser
 
 1. Make sure you have the latest version of [Python3](https://python.org) and pip installed.
 2. Install all dependencies using `pip3 install -r requirements.txt`
-3. Run the Django server from your terminal using:
-```shell
-python3 manage.py runserver
-```
+3. Run the Django server from your terminal using:  
+`$ python3 manage.py runserver`
 4. Access the application via [127.0.0.1:8000](127.0.0.1:8000).
 
 
