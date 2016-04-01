@@ -10,6 +10,16 @@ class Tdo(models.Model):
         'TdoUser',
         on_delete=models.CASCADE,
     )
+    in_list = models.ForeignKey('TdoList', on_delete=models.CASCADE)
+
+    @staticmethod
+    def create(
+            tdo_id,
+            name,
+            owner,
+            add_to='default'):
+        in_list = TdoList.objects.filter(owner=owner).get(name=add_to)
+        return Tdo.objects.create(tdo_id, name, owner, in_list)
 
 
 class TdoUser(models.Model):
@@ -33,8 +43,9 @@ class TdoUser(models.Model):
         )
         user.is_active = False
         user.save()
-
-        return TdoUser.objects.create(user=user)
+        tdo_user = TdoUser.objects.create(user=user)
+        TdoList.objects.create(name='default', owner=tdo_user)
+        return tdo_user
 
     def add_token(self, token):
         pass  # TODO method to add a new token
@@ -42,3 +53,8 @@ class TdoUser(models.Model):
     def get_tokens(self):
         # return self.tokens.split()
         pass  # TODO method to get a list of tokens
+
+
+class TdoList(models.Model):
+    name = models.CharField(max_length=250)
+    owner = models.ForeignKey('TdoUser', on_delete=models.CASCADE)
