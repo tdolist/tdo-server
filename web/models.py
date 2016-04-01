@@ -12,6 +12,7 @@ class Tdo(models.Model):
     )
     in_list = models.ForeignKey('TdoList', on_delete=models.CASCADE)
 
+    '''
     @staticmethod
     def create(
             tdo_id,
@@ -20,6 +21,7 @@ class Tdo(models.Model):
             add_to='default'):
         in_list = TdoList.objects.filter(owner=owner).get(name=add_to)
         return Tdo.objects.create(tdo_id, name, owner, in_list)
+    '''
 
 
 class TdoUser(models.Model):
@@ -44,7 +46,7 @@ class TdoUser(models.Model):
         user.is_active = False
         user.save()
         tdo_user = TdoUser.objects.create(user=user)
-        TdoList.objects.create(name='default', owner=tdo_user)
+        TdoList.objects.create(name='default', owner=tdo_user)  # TODO maybe move to registration function?
         return tdo_user
 
     def add_token(self, token):
@@ -56,5 +58,5 @@ class TdoUser(models.Model):
 
 
 class TdoList(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=250)  # TODO should be unique
     owner = models.ForeignKey('TdoUser', on_delete=models.CASCADE)
