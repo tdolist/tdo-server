@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tdolist/tdo-server.svg?branch=master)](https://travis-ci.org/tdolist/tdo-server)
+
 # tdo-server
 
 This is a server that helps to manage your tdo lists synced on all your devices.  
