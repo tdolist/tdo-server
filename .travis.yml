@@ -1,12 +1,8 @@
-language: python
-
-python: "3.5"
-
-# install dependencies
-install: "pip install -r requirements.txt"
-
-# run tests
-script: python manage.py test
-
-sudo: false
-
+language: rust
+rust:
+   - stable
+   - beta
+   - nightly
+matrix:
+   allow_failures:
+     - rust: nightly
